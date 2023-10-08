@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  /* chrome based */
+  width: 0px; /* ширина scrollbar'a */
+  background: transparent; /* опционально */
+}
+
+body {
+  /*width: 100vw;*/
+  /* height: 170vh; */
+  margin: 0;
+}
+
+#main {
+  height: 50%;
+  background-image: url("https://2.downloader.disk.yandex.ru/preview/7fb59c71fa8869c2b5613e4a72bdfabbd3bd39f75151e3e5744d2a7f30fc9b89/inf/T01SpyxtRcArb5yoWn9RiJjnCxlhg1b3dfSDTbYawn-ZbPInrfEhN783OuQc1W4W6V0qdt5lAr-1bqAR63o6eA%3D%3D?uid=643950779&filename=bg2.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=643950779&tknv=v2&size=1898x902");
+  background-size: cover;
+  background-repeat: no-repeat;
+  clear: both;
+}
+
+header {
+  /*position: fixed;*/
+  /*width: 100%;*/
+  height: 80px;
+  clear: both;
+  position: fixed !important;
+  top: 0 !important;
+  /*background-color: gray;*/
+}
+
+header button{
+  font-family: "Noto Sans", sans-serif!important;
+  
+}
+
+header {
+  background: var(--black-color) !important;
+  transition: 1.3s !important;
+}
+
+.header-hidden {
+  transform: translateY(-80px);
+  transition: 1.3s !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+.default-header-menu-item {
+  position: relative;
+  /*padding-bottom: 1px;*/
+}
+
+a:visited {
+  color: inherit;
+}
+
+#logo {
+  /* height: 50%; */
+  clear: both;
+  /* font-size: 3vh; */
+  /*font-family: Futura, sans-serif;*/
+  font-weight: bold;
+}
+
+#kolDiv {
+  width: 45%;
+  height: 100%;
+  float: left;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  /*border-bottom: 3px solid white;*/
+}
+
+#camDiv {
+  width: 54%;
+  height: 100%;
+  float: right;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  /*border-bottom: 3px solid white;*/
+}
+
+#kol {
+  float: right;
+  /* margin: 5px 0 0 0; */
+  /* padding-top: 7px; */
+  padding-left: 5px;
+  padding-right: 5px;
+  /*color: black;*/
+  /*background-color: white;*/
+  /*mix-blend-mode: multiply;*/
+  background-color: white;
+  color: black;
+
+  mix-blend-mode: screen;
+  /*border-top: 3px solid;*/
+  padding: 2px 5px 2px;
+}
+
+#cam {
+  float: left;
+  /* margin: 1vh 0 0 0; */
+  /* padding-top: 4px; */
+  color: white;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  margin-left: 5px;
+  /*background-color: black;*/
+}
+
+#logoFooter {
+  position: absolute;
+  top: 80%;
+  left: 0;
+  height: 27px;
+  width: 105px;
+  /*background-color: blanchedalmond;*/
+}
+
+#name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  /*background-color: blanchedalmond;*/
+  color: white;
+  font-size: 25px;
+  font-family: Century;
+}
