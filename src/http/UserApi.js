@@ -22,7 +22,7 @@ export const registration = async (user) => {
 }
 
 export const login = async (user) => {
-    await axios.post('/userlog/login', {email: user.email, password: user.password});
+    await axios.post('https://videoperimetr.onrender.com/userlog/login', {email: user.email, password: user.password});
     const jwt = getJwtFromCookie()
     return jwt_decode(jwt);
 }
