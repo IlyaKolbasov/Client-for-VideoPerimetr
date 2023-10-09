@@ -16,7 +16,7 @@ function getJwtFromCookie() {
 }
 
 export const registration = async (user) => {
-    await axios.post('/userlog/registration', user);
+    await axios.post('https://videoperimetr.onrender.com/userlog/registration', user);
     const jwt = getJwtFromCookie()
     return jwt_decode(jwt);
 }
