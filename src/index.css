@@ -341,7 +341,7 @@ main {
   position: relative;
 }
 
-/* .map::after {
+ .map::after {
   content: "";
   width: 100%;
   height: 100%;
@@ -350,7 +350,8 @@ main {
   left: 0;
   background: transparent;
   z-index: 5;
-} */
+}
+
 .swiper-slide {
   display: flex !important;
   justify-content: center;

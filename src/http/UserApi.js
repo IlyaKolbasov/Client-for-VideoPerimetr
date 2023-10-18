@@ -16,13 +16,25 @@ function getJwtFromCookie() {
 }
 
 export const registration = async (user) => {
-    await axios.post('https://videoperimetr.onrender.com/userlog/registration', user);
-    const jwt = getJwtFromCookie()
-    return jwt_decode(jwt);
+    const { data } = await axios.post('userlog/registration', user);
+    localStorage.setItem('jwt', data.token);
+    const payload = jwt_decode(data.token)
+
+    return payload
 }
 
 export const login = async (user) => {
-    await axios.post('https://videoperimetr.onrender.com/userlog/login', {email: user.email, password: user.password}, {withCredentials: true});
-    const jwt = getJwtFromCookie()
-    return jwt_decode(jwt);
+    // const a = await axios.post('https://videoperimetr.onrender.com/userlog/login', {email: user.email, password: user.password}, {withCredentials: true});
+    const { data } = await axios.post(
+        'https://videoperimetr.onrender.com/userlog/login',
+        {email: user.email, password: user.password},
+        {headers: {
+                  Authorization: `Bearer `,
+                }
+        });
+
+    localStorage.setItem('jwt', data.token);
+    const payload = jwt_decode(data.token);
+
+    return payload
 }

@@ -47,13 +47,12 @@ export const LoginPage = ({ setUser, handleClose }) => {
     const onSubmit = async (data) => {
         try {
             let user;
-            console.log("BBBBBBB")
             if (isAuth) {
                 user = await login(data);
             } else {
                 user = await registration(data);
             }
-            console.log('AAAAAAA')
+            console.log(user)
             localStorage.setItem('user', JSON.stringify(user))
             setUser(user)
             handleClose();

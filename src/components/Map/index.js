@@ -7,18 +7,7 @@ const Map = () => {
     triggerOnce: true,
   });
 
-  // useEffect(() => {
-  //   const handleScroll = (event) => {
-  //     event.preventDefault();
-  //   };
 
-  //   const mapElement = document.querySelector('#map');
-  //   mapElement.addEventListener('wheel', handleScroll, { passive: false });
-
-  //   return () => {
-  //     mapElement.removeEventListener('wheel', handleScroll);
-  //   };
-  // }, []);
 
   return (
     <div
@@ -29,7 +18,7 @@ const Map = () => {
       }`}
     >
       <iframe
-        src="https://yandex.ru/map-widget/v1/?um=constructor%3A75f6c8c181c520694d8847ca70d68907666d64ff8e00c460f004b6204fb6da58&amp;source=constructor"
+        src="https://yandex.ru/map-widget/v1/?um=constructor%3A697b5e22797e1164d1b5e9dc2fb27c86fde127d1b4560936d367cf22bd133f1f&amp;source=constructor"
         width="100%"
         height="500"
         frameborder="0"
