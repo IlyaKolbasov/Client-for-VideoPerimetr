@@ -26,7 +26,7 @@ export const registration = async (user) => {
 export const login = async (user) => {
     // const a = await axios.post('https://videoperimetr.onrender.com/userlog/login', {email: user.email, password: user.password}, {withCredentials: true});
     const { data } = await axios.post(
-        'https://videoperimetr.onrender.com/userlog/login',
+        'http://localhost:8080/userlog/login',
         {email: user.email, password: user.password},
         {headers: {
                   Authorization: `Bearer `,

@@ -19,7 +19,7 @@ import Logo from "../Logo";
 import { Link, animateScroll as scroll } from "react-scroll";
 import { LoginPage } from "../../pages/LoginPage";
 import { useNavigate } from "react-router-dom";
-import { ADMIN_ROUTE } from "../../constants/routes";
+import { ADMIN_ROUTE, ADMIN_ROUTE_2 } from "../../constants/routes";
 import { style, appBarStyle, toolBarStyle, tabStyle } from "./constants";
 
 let previousScroll = 0;
@@ -92,7 +92,7 @@ const Header = ({ user, setUser }) => {
             </Link>
             {isMatch ? (
               <>
-                <DrawerComp user={user} setUser={setUser}/>
+                <DrawerComp user={user} setUser={setUser} />
               </>
             ) : (
               <>
@@ -142,11 +142,18 @@ const Header = ({ user, setUser }) => {
                   </Link>
 
                   {user && user.authorities === "ADMIN" && (
-                    <Tab
-                      label="Взять запросы"
-                      sx={tabStyle}
-                      onClick={() => navigate(ADMIN_ROUTE)}
-                    />
+                    <>
+                      <Tab
+                        label="Взять запросы"
+                        sx={tabStyle}
+                        onClick={() => navigate(ADMIN_ROUTE)}
+                      />
+                      <Tab
+                        label="В процессе"
+                        sx={tabStyle}
+                        onClick={() => navigate(ADMIN_ROUTE_2)}
+                      />
+                    </>
                   )}
                 </Tabs>
                 <IconButton>

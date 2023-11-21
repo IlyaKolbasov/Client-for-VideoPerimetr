@@ -2,6 +2,7 @@ import { useInView } from "react-intersection-observer";
 import { Autoplay, EffectFade, Navigation, Pagination, Thumbs } from "swiper";
 import "swiper/css/bundle";
 import { Swiper, SwiperSlide } from "swiper/react";
+import {useEffect} from "react"
 
 const problems = [
   {
@@ -48,6 +49,29 @@ const Problems = () => {
     triggerOnce: true,
   });
 
+  useEffect(() => {
+    // Определение максимальной высоты элемента
+    const slides = document.querySelectorAll('#swiper2 .swiper-slide');
+
+    // console.log(slides)
+
+    let maxHeight = 0;
+    slides.forEach(slide => {
+      const slideHeight = slide.offsetHeight;
+      console.log(slideHeight)
+      if (slideHeight >= maxHeight) {
+        maxHeight = slideHeight;
+        // console.log(slide)
+        // console.log(maxHeight)
+      }
+    });
+
+    // Применение максимальной высоты ко всем слайдам
+    slides.forEach(slide => {
+      slide.style.height = `${maxHeight}px`;
+    });
+  }, []);
+
   return (
     <div id="problem-block" className="container-black">
       <div
@@ -72,7 +96,7 @@ const Problems = () => {
           id="swiper2"
           modules={[EffectFade, Autoplay, Thumbs, Pagination, Navigation]}
           effect="cards"
-          spaceBetween={0}
+          spaceBetween={20}
           slidesPerView={1}
           className="cards"
           autoplay={{

@@ -6,9 +6,9 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import { deleteRecord } from "../../http";
+import {deleteRecord, updateStatus} from "../../http";
 
-export function BasicAccordion({ record, handleClick }) {
+export function BasicAccordion({ record, handleClick, inProgress }) {
   const {
     firstName,
     lastName,
@@ -26,7 +26,11 @@ export function BasicAccordion({ record, handleClick }) {
   } = record;
 
   const handleDelete = async () => {
-    const result = await deleteRecord(id);
+    if (inProgress) {
+      await deleteRecord(id);
+    } else {
+      await updateStatus(id);
+    }
     handleClick();
   };
 
@@ -59,8 +63,9 @@ export function BasicAccordion({ record, handleClick }) {
               aria-label="delete"
               style={{ color: "#231f20", transform: "translateX(7px)"}}
               onClick={handleDelete}
+              className={"process-btn"}
             >
-              <CloseIcon />
+             В процесс
             </IconButton>
           </Typography>
           <Typography>{`Улица, дом - ${street}, ${buildingNumber}`}</Typography>
