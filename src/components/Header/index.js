@@ -20,7 +20,7 @@ import { Link, animateScroll as scroll } from "react-scroll";
 import { LoginPage } from "../../pages/LoginPage";
 import { useNavigate } from "react-router-dom";
 import { ADMIN_ROUTE, ADMIN_ROUTE_2 } from "../../constants/routes";
-import { style, appBarStyle, toolBarStyle, tabStyle } from "./constants";
+import { style, toolBarStyle, tabStyle } from "./constants";
 
 let previousScroll = 0;
 
@@ -33,11 +33,19 @@ const Header = ({ user, setUser }) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const signOut = () => {
+    localStorage.removeItem("user");
+    setUser(null);
+    navigate(`/`);
+  };
+
   useEffect(() => {
-    window.addEventListener("scroll", isSticky);
-    return () => {
-      window.removeEventListener("scroll", isSticky);
-    };
+    if (window.innerWidth >= 760) {
+      window.addEventListener("scroll", isSticky);
+      return () => {
+        window.removeEventListener("scroll", isSticky);
+      };
+    }
   }, []);
 
   const isSticky = (e) => {
@@ -53,10 +61,12 @@ const Header = ({ user, setUser }) => {
     previousScroll = scrollTop;
   };
 
+  console.log('user', user);
+  console.log('user.authorities !== "ADMIN"', user?.authorities)
   return (
     <>
       <div>
-        <Button onClick={handleOpen}>Open modal</Button>
+        {/* <Button onClick={handleOpen}>Open modal</Button> */}
         <Modal
           aria-labelledby="transition-modal-title"
           aria-describedby="transition-modal-description"
@@ -79,7 +89,12 @@ const Header = ({ user, setUser }) => {
       </div>
 
       <>
-        <AppBar sx={appBarStyle}>
+        {/* <AppBar sx={appBarStyle}> */}
+        <AppBar
+          position="fixed"
+          color="primary"
+          sx={{ top: "auto", bottom: 0 }}
+        >
           <Toolbar sx={toolBarStyle}>
             <Link
               to="swiper"
@@ -92,7 +107,12 @@ const Header = ({ user, setUser }) => {
             </Link>
             {isMatch ? (
               <>
-                <DrawerComp user={user} setUser={setUser} />
+                <DrawerComp
+                  user={user}
+                  setUser={setUser}
+                  modal={handleOpen}
+                  signOut={signOut}
+                />
               </>
             ) : (
               <>
@@ -156,9 +176,23 @@ const Header = ({ user, setUser }) => {
                     </>
                   )}
                 </Tabs>
-                <IconButton>
-                  <PersonIcon sx={{ color: "white" }} onClick={handleOpen} />
-                </IconButton>
+                {
+                    user && user.authorities === "ADMIN" ?
+                        (
+                            <IconButton onClick={signOut}>
+                              <img
+                                  style={{ width: "30px" }}
+                                  src="/img/sign-out-left-2-svgrepo-com.svg"
+                                  alt="Выход"
+                              />
+                            </IconButton>
+                        ) :
+                        (
+                            <IconButton>
+                              <PersonIcon sx={{ color: "white" }} onClick={handleOpen} />
+                            </IconButton>
+                        )
+                }
               </>
             )}
           </Toolbar>

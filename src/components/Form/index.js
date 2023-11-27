@@ -93,7 +93,7 @@ export default function SignUp() {
               alignItems: "center",
             }}
           >
-            <Typography component="h1" variant="h5" sx={{ fontWeight: 700 }}>
+            <Typography component="h5" variant="h5" className="h2" sx={{ fontWeight: 700 }}>
               Предоставление видеоархива
             </Typography>
             <Box

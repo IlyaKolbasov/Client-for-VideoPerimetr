@@ -51,7 +51,7 @@ const Problems = () => {
 
   useEffect(() => {
     // Определение максимальной высоты элемента
-    const slides = document.querySelectorAll('#swiper2 .swiper-slide');
+    const slides = document.querySelectorAll('#swiper2 .problem__item');
 
     // console.log(slides)
 
@@ -68,7 +68,7 @@ const Problems = () => {
 
     // Применение максимальной высоты ко всем слайдам
     slides.forEach(slide => {
-      slide.style.height = `${maxHeight}px`;
+      slide.style = `height: ${maxHeight}px !important;`;
     });
   }, []);
 

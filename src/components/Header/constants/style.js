@@ -10,6 +10,6 @@ export const style = {
     p: 4,
 };
 
-export const appBarStyle = { boxShadow: "none", background: "none", position: "relative" }
+// export const appBarStyle = { boxShadow: "none", background: "none", position: "relative" }
 export const toolBarStyle = { height: "100px", marginLeft: "60px", marginRight: "60px" }
 export const tabStyle = { textTransform: "none", fontSize: "15px" }

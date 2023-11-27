@@ -425,13 +425,19 @@ body {
   }
 }
 
+@media (max-width: 960px) {
+  header .MuiToolbar-root {
+    justify-content: center;
+  }
+}
+
 @media (max-width: 768px) {
   #experience .container {
     padding: 40px 10px;
     /* transform: scale(0.5); */
     /* width: 100%; */
   }
-  .about-us-info__item {
+  /* .about-us-info__item {
     padding: 10px;
   }
   .about-us-info__item {
@@ -448,8 +454,9 @@ body {
   }
   .about-us-info__content {
     hyphens: auto;
-  }
-  /* .about-us-info__content{
+  } */
+
+  .about-us-info__content {
     hyphens: auto;
   }
   .about-us-info {
@@ -480,7 +487,7 @@ body {
   .problem__item {
     padding: 15px;
     width: calc(100% / 2 - 20px);
-  } */
+  }
 }
 
 /*
@@ -541,10 +548,6 @@ body {
   .problem__content::-webkit-scrollbar-thumb {
     background-color: var(--black-color);
   }
-  .about-us-block__row-first {
-    flex-direction: column;
-    gap: 50px;
-  }
   .about-us-block__row-first * {
     text-align: center;
   }
@@ -576,7 +579,92 @@ body {
   } */
 /* } */
 
+#mob-menu {
+  bottom: 0px;
+  position: fixed;
+  top: unset !important;
+  width: 100%;
+  left: 0px;
+  background-color: white;
+  z-index: 999;
+  /*border-top: 3px solid #000;*/
+}
+#mob-menu img {
+  width: 30px;
+  height: 30px;
+}
+
+#mob-menu img {
+  width: 30px;
+  height: 30px;
+}
+
+#mob-menu [role="button"],
+#mob-menu .MuiListItemIcon-root {
+  justify-content: center;
+}
+
+#mob-menu [role="button"] span {
+  text-align: center;
+}
+
+#mob-menu img:active {
+  filter: invert(1);
+  background: white;
+  border-radius: 5px;
+}
+
+#mob-menu ul {
+  width: 100%;
+}
+
+#mob-menu:active {
+  animation: active 5s ease;
+}
+
+@keyframes active {
+  100% {
+  }
+}
+
 @media (max-width: 760px) {
+  #sign-up button {
+    width: 100% !important;
+    height: 45px;
+  }
+  .problem__content {
+    font-size: 16px;
+  }
+  .about-us-info__title {
+    font-size: 25px;
+  }
+  .problem__content * {
+    font-size: 16px;
+    text-align: center;
+  }
+  #problem-block .swiper-slide *:hover,
+  #problem-block .swiper-slide *:active {
+    transform: unset !important;
+    cursor: unset !important;
+  }
+  .about-us-info__content {
+    max-width: 80%;
+    margin: 5px auto 0;
+    font-size: 16px;
+  }
+  .container {
+    padding: 40px 20px;
+  }
+  .about-us-block__row-first {
+    flex-direction: column;
+    gap: 25px;
+  }
+  #sign-up .MuiBox-root {
+    margin-top: 0px;
+  }
+  #sign-up .h2 {
+    margin-bottom: 20px;
+  }
   #contact {
     display: flex;
     flex-direction: column;
@@ -629,6 +717,10 @@ body {
   #swiper2 .problem__img img {
     margin: 0 auto;
     width: 50px;
+    height: 50px !important;
+  }
+  .hidden {
+    display: none;
   }
   .swiper-slide,
   .swiper {
@@ -636,6 +728,82 @@ body {
     height: auto !important;
     width: 100% !important;
     aspect-ratio: 1.7;
+  }
+  header .MuiToolbar-root {
+    padding: 0;
+    margin: 0 20px;
+  }
+  .css-1aeycle {
+    width: 90% !important;
+    padding: 0px !important;
+  }
+  .css-1aeycle .css-1gbm8pl {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  #problem-block .container {
+    padding-bottom: 50px;
+  }
+  header {
+    height: 60px !important;
+  }
+  .swiper {
+    margin-top: 60px;
+  }
+  #swiper2 {
+    margin-top: 20px;
+  }
+  .h1 {
+    font-size: 24px;
+  }
+  .h2 {
+    font-size: 26px;
+    text-align: center;
+  }
+  .text-slogan {
+    font-size: 16px;
+  }
+  h1 span {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  /* example1 */
+  /* .image-item {
+    width: 100%;
+  }
+  .image-item img {
+    aspect-ratio: 1.7;
+    object-fit: cover;
+  }
+  .image-container {
+    gap: 20px;
+  } */
+
+  .image-item {
+    width: 45%;
+  }
+  .image-item img {
+  }
+  .image-container {
+    margin-top: 0;
+  }
+  .image-container {
+    gap: 20px;
+  }
+
+  .swiper-heading {
+    font-size: 24px;
+    line-height: 130%;
+  }
+  .swiper-button-prev {
+    left: -20px !important;
+    right: unset !important;
+  }
+  .swiper-button-next {
+    right: -20px !important;
+    left: unset !important;
   }
 }
 
