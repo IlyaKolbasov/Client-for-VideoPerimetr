@@ -17,16 +17,11 @@ export const AdminPage = () => {
     useEffect(() => {
         getRecords()
             .then((res) => setRecords(res))
-        // .catch((err) => setError(true))
     }, [isClicked])
 
     const handleClick = () => {
         setIsClicked((prev) => !prev)
     }
-
-    // if (error) {
-    //     return <Error />
-    // }
 
     return (
         <>

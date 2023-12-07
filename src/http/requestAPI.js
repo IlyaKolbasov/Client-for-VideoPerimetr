@@ -1,7 +1,7 @@
 import { $host } from "./host";
 import axios from "axios";
 export const getRequests = async () => {
-   // const { data } = await axios.get('http://localhost:8080/admin', {headers: {
+    //const { data } = await axios.get('http://localhost:8080/admin', {headers: {
     const { data } = await axios.get('https://videoperimetr.onrender.com/admin', {headers: {
             Authorization: `Bearer ${localStorage.getItem('jwt')}`,
         }});
@@ -9,7 +9,7 @@ export const getRequests = async () => {
 }
 
 export const getRequestsInProgress = async () => {
-   // const { data } = await axios.get('http://localhost:8080/admin/isProcessing', {headers: {
+    //const { data } = await axios.get('http://localhost:8080/admin/isProcessing', {headers: {
     const { data } = await axios.get('https://videoperimetr.onrender.com/admin/isProcessing', {headers: {
             Authorization: `Bearer ${localStorage.getItem('jwt')}`,
         }});
@@ -17,14 +17,19 @@ export const getRequestsInProgress = async () => {
 }
 export const deleteRecord = async (id) => {
     //const { data } = await axios.delete('http://localhost:8080/admin/delete',
-    const { data } = await axios.delete('https://videoperimetr.onrender.com/admin/delete',
+   const { data } = await axios.delete('https://videoperimetr.onrender.com/admin/delete',
         { params: { id }, headers: { Authorization: `Bearer ${localStorage.getItem('jwt')}` } })
 
 }
 
 export const updateStatus = async (id) => {
-   // const { data } = await axios.put('http://localhost:8080/admin/updatestatus',
-    const { data } = await axios.put('https://videoperimetr.onrender.com/admin/updatestatus',
-        { }, { params: { id }, headers: { Authorization: `Bearer ${localStorage.getItem('jwt')}` }})
-
+    const { data } = await axios.put(
+       // `http://localhost:8080/admin/updatestatus`,
+        'https://videoperimetr.onrender.com/admin/updatestatus',
+        {},
+        {
+            params: {id},
+            headers: { Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+            }
+        });
 }

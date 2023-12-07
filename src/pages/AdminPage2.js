@@ -9,7 +9,6 @@ import Error from "../components/Error";
 export const AdminPage2 = () => {
     const [records, setRecords] = useState([]);
     const [isClicked, setIsClicked] = useState(false);
-    // const [error, setError] = useState(false);
     const getRecords = async () => {
         const records = await getRequestsInProgress();
 
@@ -17,18 +16,14 @@ export const AdminPage2 = () => {
     }
 
     useEffect(() => {
+        console.log(12)
         getRecords()
             .then((res) => setRecords(res))
-        // .catch((err) => setError(true))
     }, [isClicked])
 
     const handleClick = () => {
         setIsClicked((prev) => !prev)
     }
-
-    // if (error) {
-    //     return <Error />
-    // }
 
     return (
         <>
